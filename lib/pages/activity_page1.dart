@@ -152,6 +152,16 @@ class _MusicPlayerState extends State<ActivityPage1> {
             Text(
               displayText.isEmpty ? '' : displayText,
               textAlign: TextAlign.center,
+              maxLines: 1, // avoid wrapping
+              overflow: TextOverflow.ellipsis, // truncate safely
+              softWrap: false, // preent wrapping that causes overflow
+              strutStyle: const StrutStyle(
+                // stabilize vertical metrics
+                forceStrutHeight: true,
+                height: 1.2,
+                leading: 0.2,
+                fontSize: 28,
+              ),
               style: TextStyle(
                 color: isCurrentLine ? Colors.white : Colors.grey,
                 fontSize: 28,
