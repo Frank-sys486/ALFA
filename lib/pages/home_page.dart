@@ -138,7 +138,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: MediaQuery.of(context).size.width > 1000
           ? Row(
-              // tablet mode
               children: [
                 Container(
                   width: 300,
@@ -321,7 +320,7 @@ class _HomePageState extends State<HomePage> {
 
   void _toggleFullScreen() {
     if (selectedActivity != null) {
-      // open the activity in fullscreen
+      // Navigate to fullscreen activity
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => selectedActivity!),

@@ -139,6 +139,7 @@ class _MusicPlayerState extends State<ActivityPage1> {
     return ListView.builder(
       controller: _lyricScrollController,
       itemCount: lyricLines.length,
+      itemExtent: lyricLineHeight,
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       itemBuilder: (context, i) {
         final line = lyricLines[i].trim();
@@ -150,18 +151,8 @@ class _MusicPlayerState extends State<ActivityPage1> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              displayText.isEmpty ? '' : displayText,
-              textAlign: TextAlign.center,
-              maxLines: 1, // avoid wrapping
-              overflow: TextOverflow.ellipsis, // truncate safely
-              softWrap: false, // preent wrapping that causes overflow
-              strutStyle: const StrutStyle(
-                // stabilize vertical metrics
-                forceStrutHeight: true,
-                height: 1.2,
-                leading: 0.2,
-                fontSize: 28,
-              ),
+              displayText.isEmpty ? ' ' : displayText,
+              textAlign: TextAlign.left,
               style: TextStyle(
                 color: isCurrentLine ? Colors.white : Colors.grey,
                 fontSize: 28,
